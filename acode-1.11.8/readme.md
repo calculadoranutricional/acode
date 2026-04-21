@@ -59,9 +59,53 @@ Para compilar Acode directamente en un dispositivo Android usando Termux, sigue 
 #### 1. Requisitos Previos
 Asegúrate de tener instalados los paquetes esenciales en Termux:
 ```shell
-pkg install gradle
-# Recomendado: pnpm para una gestión de paquetes más rápida
-npm install -g pnpm
+# 1. 📂 Habilita el acceso a las carpetas del almacenamiento interno del teléfono
+termux-setup-storage && \
+
+# 2. 🔄 Sincroniza el índice de paquetes con los servidores oficiales
+pkg update -y && \
+
+# 3. 🆙 Sube de versión los paquetes instalados aceptando configuraciones nuevas automáticamente
+pkg upgrade -y -o Dpkg::Options::="--force-confnew" && \
+
+# 4. 🐙 Instala GitHub CLI para gestionar repositorios desde la terminal
+pkg install gh -y && \
+
+# 5. 🐚 Instala el shell Zsh como alternativa avanzada a Bash
+pkg install zsh -y && \
+
+# 6. 🌿 Instala Git para el control de versiones de tus proyectos
+pkg install git -y && \
+
+# 7. 🟢 Instala el entorno Node.js para ejecutar JavaScript
+pkg install nodejs -y && \
+
+# 8. 📦 Instala pnpm globalmente para una gestión de paquetes más rápida y eficiente
+npm install -g pnpm && \
+
+# 9. 🐘 Instala Gradle para la automatización y compilación de proyectos (como Android)
+pkg install gradle -y && \
+
+# 10. 🤐 Instala Zip para comprimir y empaquetar archivos desde la terminal
+pkg install zip -y && \
+
+# 11. 🪄 Instala Oh My Zsh de forma automatizada y desatendida
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
+
+# 12. 💡 Clona el plugin de sugerencias automáticas (Autosuggestions)
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+
+# 13. 🎨 Clona el plugin de resaltado de sintaxis (Syntax Highlighting)
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
+
+# 14. ⚙️ Configura los plugins dentro del archivo .zshrc automáticamente
+sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc && \
+
+# 15. 🤫 Elimina el mensaje de bienvenida de Termux (Hush Login)
+touch ~/.hushlogin && \
+
+# 16. 🏁 Cambia el shell por defecto a Zsh y reinicia la sesión reemplazando el proceso
+chsh -s zsh && exec zsh
 ```
 
 #### 2. Configuración del Entorno
