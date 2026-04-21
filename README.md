@@ -108,7 +108,9 @@ touch ~/.hushlogin && \
 chsh -s zsh && exec zsh
 ```
 
-#### 2. Configuración de Identidad y GitHub. Configura tus credenciales de Git e inicia sesión en GitHub:
+#### 2. Configuración de Identidad y GitHub. 
+
+Configura tus credenciales de Git e inicia sesión en GitHub:
 ```shell
 # 1. 👤 Pide tu nombre de usuario y lo configura en Git
 echo "Introduce tu nombre de usuario de GitHub:" && read username && git config --global user.name "$username" && \
@@ -122,7 +124,9 @@ gh auth login && \
 # 4. 🛡️ Eleva los permisos de GitHub para permitir el borrado de repositorios
 gh auth refresh -s delete_repo
 ```
-#### 3. Clonación del Proyecto y Dependencias del SDK. Descarga el código base y las herramientas necesarias:
+#### 3. Clonación del Proyecto y Dependencias del SDK. 
+
+Descarga el código base y las herramientas necesarias:
 ```shell
 # 1. 🐙 Clona el repositorio base de Acode para trabajar localmente
 git clone [https://github.com/calculadoranutricional/acode-termux-base.git](https://github.com/calculadoranutricional/acode-termux-base.git) && \
