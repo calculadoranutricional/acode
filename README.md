@@ -48,9 +48,7 @@ pnpm run lang search
 pnpm run lang update
 ```
 
-## • Contributing & Building the Application
-
-See [acode-1.11.18/CONTRIBUTING.md](acode-1.11.18/CONTRIBUTING.md) for detailed instructions.
+## • Building the Application
 
 ### 🚀 Guía de Compilación Nativa en Termux (aarch64)
 
