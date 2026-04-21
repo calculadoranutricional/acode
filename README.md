@@ -108,7 +108,37 @@ touch ~/.hushlogin && \
 chsh -s zsh && exec zsh
 ```
 
-#### 2. Configuración del Entorno
+#### 2. Configuración de Identidad y GitHub. Configura tus credenciales de Git e inicia sesión en GitHub:
+```shell
+# 1. 👤 Pide tu nombre de usuario y lo configura en Git
+echo "Introduce tu nombre de usuario de GitHub:" && read username && git config --global user.name "$username" && \
+
+# 2. 📧 Pide tu correo y lo vincula a tu cuenta de Git
+echo "Introduce tu correo de GitHub:" && read email && git config --global user.email "$email" && \
+
+# 3. 🔐 Inicia sesión en GitHub CLI para gestionar repositorios (sigue las instrucciones en pantalla)
+gh auth login && \
+
+# 4. 🛡️ Eleva los permisos de GitHub para permitir el borrado de repositorios
+gh auth refresh -s delete_repo
+```
+#### 3. Clonación del Proyecto y Dependencias del SDK. Descarga el código base y las herramientas necesarias:
+```shell
+# 1. 🐙 Clona el repositorio base de Acode para trabajar localmente
+git clone [https://github.com/calculadoranutricional/acode-termux-base.git](https://github.com/calculadoranutricional/acode-termux-base.git) && \
+
+# 2. 🤖 Descarga, extrae y limpia el archivo del SDK de Android
+curl -L -O [https://github.com/calculadoranutricional/acode-termux-base/releases/download/latest-build/android-sdk.zip](https://github.com/calculadoranutricional/acode-termux-base/releases/download/latest-build/android-sdk.zip) && \
+unzip android-sdk.zip && \
+rm android-sdk.zip && \
+
+# 3. 🐘 Descarga, extrae y limpia el archivo de Gradle para la compilación
+curl -L -O [https://github.com/calculadoranutricional/acode-termux-base/releases/download/latest-build/gradle.zip](https://github.com/calculadoranutricional/acode-termux-base/releases/download/latest-build/gradle.zip) && \
+unzip gradle.zip && \
+rm gradle.zip
+```
+
+#### 4. Configuración del Entorno
 Exporta las rutas necesarias (ajustadas a tu sistema):
 ```shell
 cat <<EOF >> ~/.zshrc
@@ -120,7 +150,7 @@ export GRADLE_OPTS="-Dandroid.aapt2FromMaven=false"
 EOF
 ```
 
-#### 3. Instalación de Dependencias
+#### 5. Instalación de Dependencias
 ```shell
 # 1. 📂 Entra al directorio específico del proyecto acode
 cd acode-termux-base/acode-1.11.18 && \
