@@ -56,8 +56,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 Para compilar Acode directamente en un dispositivo Android usando Termux, sigue estos pasos optimizados:
 
-#### 1. Requisitos Previos
-Asegúrate de tener instalados los paquetes esenciales en Termux:
+#### 1. Instalación de Herramientas Esenciales
+
+​Copia y pega este bloque para configurar tu entorno inicial en Termux:
 ```shell
 # 1. 📂 Habilita el acceso a las carpetas del almacenamiento interno del teléfono
 termux-setup-storage && \
@@ -142,8 +143,9 @@ unzip gradle.zip && \
 rm gradle.zip
 ```
 
-#### 4. Configuración del Entorno
-Exporta las rutas necesarias (ajustadas a tu sistema):
+#### 4. Configuración de Variables de Entorno
+
+​Exporta las rutas necesarias en tu archivo de configuración de Zsh:
 ```shell
 cat <<EOF >> ~/.zshrc
 export JAVA_HOME=/data/data/com.termux/files/usr/lib/jvm/java-21-openjdk
@@ -154,7 +156,9 @@ export GRADLE_OPTS="-Dandroid.aapt2FromMaven=false"
 EOF
 ```
 
-#### 5. Instalación de Dependencias
+#### 5. Compilación del Proyecto
+
+​Finalmente, construye el archivo APK:
 ```shell
 # 1. 📂 Entra al directorio específico del proyecto acode
 cd acode-termux-base/acode-1.11.18 && \
