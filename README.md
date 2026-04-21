@@ -50,7 +50,7 @@ pnpm run lang update
 
 ## • Contributing & Building the Application
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
+See [acode-1.11.18/CONTRIBUTING.md](acode-1.11.18/CONTRIBUTING.md) for detailed instructions.
 
 ### 🚀 Guía de Compilación Nativa en Termux (aarch64)
 
