@@ -59,7 +59,7 @@ Para compilar Acode directamente en un dispositivo Android usando Termux, sigue 
 #### 1. Requisitos Previos
 Asegúrate de tener instalados los paquetes esenciales en Termux:
 ```shell
-pkg install openjdk-21 nodejs-lts zip unzip
+pkg install gradle
 # Recomendado: pnpm para una gestión de paquetes más rápida
 npm install -g pnpm
 ```
@@ -67,11 +67,13 @@ npm install -g pnpm
 #### 2. Configuración del Entorno
 Exporta las rutas necesarias (ajustadas a tu sistema):
 ```shell
+cat <<EOF >> ~/.zshrc
 export JAVA_HOME=/data/data/com.termux/files/usr/lib/jvm/java-21-openjdk
 export ANDROID_HOME=$HOME/android-sdk
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/36.0.0
 export GRADLE_USER_HOME=$HOME/.gradle
 export GRADLE_OPTS="-Dandroid.aapt2FromMaven=false"
+EOF
 ```
 
 #### 3. Instalación de Dependencias
