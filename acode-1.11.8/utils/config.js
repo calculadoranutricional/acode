@@ -22,12 +22,12 @@ const exec = promisify(require("node:child_process").exec);
 
 	const logoTextPaid = `<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#3a3e54</color>
-    <color name="ic_splash_background">#3a3e54</color>
+    <color name="ic_launcher_background">#DAE4F0</color>
+    <color name="ic_splash_background">#DAE4F0</color>
 </resources>`;
 	const logoTextFree = `<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#ffffff</color>
+    <color name="ic_launcher_background">#DAE4F0</color>
     <color name="ic_splash_background">#313131</color>
 </resources>`;
 
